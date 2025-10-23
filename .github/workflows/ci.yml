@@ -32,7 +32,7 @@ jobs:
 
       # Bước 3: Cài đặt các thư viện (giống hệt 'npm install')
       - name: Cài đặt dependencies
-        run: npm 
+        run: npm install
       
       - name: Cấp quyền thực thi (Fix Permission)
         run: chmod +x ./node_modules/.bin/jest
