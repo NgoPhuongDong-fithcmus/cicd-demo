@@ -1,17 +1,17 @@
 // File: app.js
 const express = require('express');
-const cart = require('./cartStore.js'); // Import "database" giỏ hàng
+const cart = require('./cartStore.js');
 const app = express();
 
-app.use(express.json()); // Middleware để đọc JSON
+app.use(express.json());
 
-// === API 1: GET /cart ===
+// === 1: GET /cart ===
 // Lấy toàn bộ giỏ hàng
 app.get('/cart', (req, res) => {
   res.status(200).json(cart);
 });
 
-// === API 2: POST /cart ===
+// === 2: POST /cart ===
 // Thêm sản phẩm vào giỏ
 app.post('/cart', (req, res) => {
   const { productId, name, quantity } = req.body;
@@ -37,7 +37,7 @@ app.post('/cart', (req, res) => {
   }
 });
 
-// === API 3: DELETE /cart/:id ===
+// === 3: DELETE /cart/:id ===
 // Xóa sản phẩm khỏi giỏ
 app.delete('/cart/:id', (req, res) => {
   const productIdToRemove = parseInt(req.params.id, 10); // Lấy ID từ URL

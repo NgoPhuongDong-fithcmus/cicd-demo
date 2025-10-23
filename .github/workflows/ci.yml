@@ -6,7 +6,7 @@ name: Demo CI/CD
 # -> Khi có ai đó 'push' code lên nhánh 'main'
 on:
   push:
-    branches: [ "main" ] # Sửa thành "master" nếu nhánh chính của bạn tên là master
+    branches: [ "main" ]
 
 # 2. CÔNG VIỆC (Jobs)
 # Liệt kê các việc cần làm
