@@ -32,7 +32,10 @@ jobs:
 
       # Bước 3: Cài đặt các thư viện (giống hệt 'npm install')
       - name: Cài đặt dependencies
-        run: npm install
+        run: npm 
+      
+      - name: Cấp quyền thực thi (Fix Permission)
+        run: chmod +x ./node_modules/.bin/jest
 
       # Bước 4: Chạy test và coverage (quan trọng nhất)
       # Nó sẽ chạy lệnh "coverage" trong file package.json của bạn
