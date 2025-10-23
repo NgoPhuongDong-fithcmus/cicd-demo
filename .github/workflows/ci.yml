@@ -1,0 +1,40 @@
+# Tên của quy trình CI/CD (hiển thị trên GitHub)
+name: Demo CI/CD
+
+# 1. KÍCH HOẠT (Trigger)
+# Chạy quy trình này khi nào?
+# -> Khi có ai đó 'push' code lên nhánh 'main'
+on:
+  push:
+    branches: [ "main" ] # Sửa thành "master" nếu nhánh chính của bạn tên là master
+
+# 2. CÔNG VIỆC (Jobs)
+# Liệt kê các việc cần làm
+jobs:
+  # Đặt tên cho việc này là 'test-and-coverage'
+  test-and-coverage:
+    # 3. MÁY ẢO
+    # Chọn máy ảo để chạy (dùng Ubuntu mới nhất)
+    runs-on: ubuntu-latest
+
+    # 4. CÁC BƯỚC (Steps)
+    # Các lệnh sẽ chạy lần lượt trên máy ảo
+    steps:
+      # Bước 1: Lấy code từ repo về máy ảo
+      - name: Lấy code (Checkout)
+        uses: actions/checkout@v4
+
+      # Bước 2: Cài đặt môi trường Node.js
+      - name: Cài đặt Node.js v18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # Bước 3: Cài đặt các thư viện (giống hệt 'npm install')
+      - name: Cài đặt dependencies
+        run: npm install
+
+      # Bước 4: Chạy test và coverage (quan trọng nhất)
+      # Nó sẽ chạy lệnh "coverage" trong file package.json của bạn
+      - name: Chạy Test & Coverage
+        run: npm run coverage
