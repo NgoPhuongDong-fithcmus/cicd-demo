@@ -34,8 +34,7 @@ jobs:
       - name: Cài đặt dependencies
         run: npm install
       
-      - name: Cấp quyền thực thi (Fix Permission)
-        run: chmod +x ./node_modules/.bin/jest
+
 
       # Bước 4: Chạy test và coverage (quan trọng nhất)
       # Nó sẽ chạy lệnh "coverage" trong file package.json của bạn
